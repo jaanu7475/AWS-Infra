@@ -1,5 +1,5 @@
 resource "aws_key_pair" "TF-key" {
-  key_name = "aws-new-key-pair"
+  key_name = "aws-new-key-pair01"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
