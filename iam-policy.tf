@@ -1,4 +1,11 @@
 resource "aws_iam_role_policy_attachment" "example_attachment" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
-  role       = aws_iam_role.demo_role.name
+  role       = aws_iam_role.ssm_role.name
+  for_each = toset([
+    "arn:aws:iam::aws:policy/AmazonEC2FullAccess", 
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+    "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+  ])
+
+  policy_arn = each.value
 }
+
