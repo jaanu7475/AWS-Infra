@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ssm_role" {
-  name = "Terraform_role"
+  name = "ec2_infra_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
